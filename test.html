@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - Data Auto-Fill</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h2 {
+            color: #2d3748;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .info-box p,
+        .info-box ol {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .info-box ol {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .info-box li {
+            margin-bottom: 6px;
+        }
+
+        .sample-data {
+            background: #f7fafc;
+            padding: 14px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #2d3748;
+            margin-top: 12px;
+            white-space: pre-line;
+            border: 1px solid #e2e8f0;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #856404;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>✍️ Auto-Fill Test Page</h1>
+        <p class="subtitle">Test the Data Auto-Fill extension with this empty form</p>
+
+        <div class="form-section">
+            <h2>Contact Information</h2>
+
+            <div class="form-group">
+                <label for="contactName">Full Name</label>
+                <input type="text" id="contactName" name="contactName" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter email">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>Shipping Address</h2>
+
+            <div class="form-group">
+                <label for="address1">Street Address</label>
+                <input type="text" id="address1" name="address1" placeholder="Enter street address">
+            </div>
+
+            <div class="form-group">
+                <label for="cityName">City</label>
+                <input type="text" id="cityName" name="cityName" placeholder="Enter city">
+            </div>
+
+            <div class="form-group">
+                <label for="stateName">State</label>
+                <input type="text" id="stateName" name="stateName" placeholder="ST">
+            </div>
+
+            <div class="form-group">
+                <label for="zipCode">ZIP Code</label>
+                <input type="text" id="zipCode" name="zipCode" placeholder="12345">
+            </div>
+
+            <div class="form-group">
+                <label for="countryName">Country</label>
+                <input type="text" id="countryName" name="countryName" placeholder="Enter country">
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>📌 How to Test</h3>
+            <ol>
+                <li>Click the Data Auto-Fill extension icon in your toolbar</li>
+                <li>Copy the sample data below and paste it into the extension's textarea</li>
+                <li>Click the "Fill Form" button</li>
+                <li>Watch the form fields auto-populate!</li>
+                <li>The extension will show how many fields were filled</li>
+            </ol>
+
+            <h3 style="margin-top: 16px;">📋 Sample Data</h3>
+            <div class="sample-data">Michael Smith
+                11111 First Rodeo Dr
+                San Francisco, CA 94110
+                United States</div>
+        </div>
+
+        <div class="note">
+            <strong>Note:</strong> The extension fills fields based on their ID and name attributes. This form uses
+            standard field names like "contactName", "address1", "cityName", "stateName", "zipCode", and "countryName"
+            which the extension will recognize and fill automatically.
+        </div>
+    </div>
+</body>
+
+</html>

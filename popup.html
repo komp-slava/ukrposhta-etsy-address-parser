@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Extractor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📋 Data Auto-Fill</h1>
+      <p class="subtitle">Paste address data to auto-fill forms</p>
+    </div>
+
+    <div class="input-section">
+      <label for="addressInput">Paste address data:</label>
+      <textarea id="addressInput" class="address-input"
+        placeholder="Michael Smith&#10;11111 First Rodeo Dr&#10;San Francisco, CA 94110&#10;United States"></textarea>
+    </div>
+
+    <div class="actions">
+      <button id="fillBtn" class="btn btn-primary">
+        <span class="btn-icon">✍️</span>
+        Fill Form
+      </button>
+    </div>
+
+    <div id="fillStatus" class="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
