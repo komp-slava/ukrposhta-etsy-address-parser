@@ -5,7 +5,8 @@ A Chrome extension that automatically fills web form fields from multi-line addr
 ## Features
 
 - ✍️ **Auto-Fill Forms**: Paste address data and automatically fill form fields
-- 🎯 **Smart Field Matching**: Intelligently detects and fills name, street, city, state, ZIP, and country fields
+- 🎯 **Smart Field Matching**: Intelligently detects and fills name, street, city, state, ZIP/postal code, and country fields
+- 🌍 **Multi-Format Support**: Handles US ZIP codes (12345), Canadian postal codes (K1A 0B1), and UK postal codes (SW1A 1AA)
 - � **Flexible Parser**: Handles variable address formats (multiple street lines, missing state, etc.)
 - 🎨 **Modern UI**: Beautiful, gradient-based interface with smooth animations
 - ⚡ **Fast & Lightweight**: Minimal footprint, instant form filling
@@ -33,11 +34,28 @@ A Chrome extension that automatically fills web form fields from multi-line addr
 
 Paste your address data in this format:
 
+**US Example:**
 ```
 Michael Smith
 11111 First Rodeo Dr
 San Francisco, CA 94110
 United States
+```
+
+**Canadian Example:**
+```
+John Doe
+123 Maple Street
+Toronto, ON M5H 2N2
+Canada
+```
+
+**UK Example:**
+```
+Jane Wilson
+10 Downing Street
+London, GB SW1A 2AA
+United Kingdom
 ```
 
 **Format Guidelines**:
@@ -108,9 +126,12 @@ The extension requires the following permissions:
 - The extension reports how many fields were filled in the status message
 
 ### Address not parsing correctly
-- Ensure city/state/ZIP line follows format: "City, ST 12345"
-- State should be 2-letter code (e.g., CA, NY, TX)
-- ZIP can be 5 or 9 digits (e.g., 94110 or 94110-1234)
+- Ensure city/state/ZIP line follows format: "City, ST ZIP"
+- State/Province should be 2-letter code (e.g., CA, NY, TX for US; ON, BC for Canada; GB for UK)
+- Supported postal code formats:
+  - **US**: 5 or 9 digits (e.g., 94110 or 94110-1234)
+  - **Canada**: XXX XXX format (e.g., K1A 0B1, M5H 2N2)
+  - **UK**: XXX XXX format (e.g., SW1A 1AA, SW1A 2AA)
 
 ## Privacy
 

@@ -87,7 +87,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const cityStateZipLine = lines[lines.length - 1];
 
       // Parse city, state, zip from last line (format: "City, ST ZIP" or "City ST ZIP")
-      const cityStateZipMatch = cityStateZipLine.match(/^(.+?),?\s+([A-Z]{2})\s+(\d{5}(?:-\d{4})?)$/);
+      // Support US (12345 or 12345-6789), Canadian (K1A 0B1), and UK (SW1A 1AA) postal codes
+      const cityStateZipMatch = cityStateZipLine.match(/^(.+?),?\s+([A-Z]{2})\s+([A-Z0-9]{3}\s[A-Z0-9]{3}|\d{5}(?:-\d{4})?)$/);
       if (cityStateZipMatch) {
         parsed.city = cityStateZipMatch[1].replace(/,$/, '').trim();
         parsed.state = cityStateZipMatch[2];
@@ -99,11 +100,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       } else {
         // If we can't parse city/state/zip, try to extract zip code
-        const zipMatch = cityStateZipLine.match(/(\d{5}(?:-\d{4})?)/);
+        // Support US (12345 or 12345-6789), Canadian (K1A 0B1), and UK (SW1A 1AA) postal codes
+        const zipMatch = cityStateZipLine.match(/([A-Z0-9]{3}\s[A-Z0-9]{3}|\d{5}(?:-\d{4})?)/);
         if (zipMatch) {
           parsed.zip = zipMatch[1];
           // Try to extract state (2 letter code before zip)
-          const stateMatch = cityStateZipLine.match(/\b([A-Z]{2})\s+\d{5}/);
+          const stateMatch = cityStateZipLine.match(/\b([A-Z]{2})\s+(?:[A-Z0-9]{3}\s[A-Z0-9]{3}|\d{5})/);
           if (stateMatch) {
             parsed.state = stateMatch[1];
             // City is everything before state
